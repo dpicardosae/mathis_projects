@@ -1,5 +1,6 @@
 var scene;
 var cam;
+var v0 = new THREE.Vector3(0, 0, 0);
 
 $(function () {
 	scene = new THREE.Scene();

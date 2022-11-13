@@ -1,5 +1,5 @@
 class GameObject {
-    constructor(geometry, args, position = new THREE.Vector3(0,0,0), rotation = new THREE.Vector3(0,0,0), color = 0x444444) { //String, args[], THREE.Vector3
+    constructor(geometry, args, position = v0, rotation = v0, color = 0x444444) { //String, args[], THREE.Vector3
         switch (geometry) {
             case "Box":
                 this.geometry = new THREE.BoxGeometry(args[0], args[1], args[2]);
