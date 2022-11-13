@@ -4,8 +4,11 @@ function deployS1() {
 }
 
 function sceneObjects() {
-    new GameObject("Line");
-    //new GameObject("Cube", [1,1,1] ,new THREE.Vector3(50, 50, 50));
+    new GameObject("Line", [new THREE.Vector3(0,0,0), new THREE.Vector3(0,100,0)], new THREE.Vector3(0,0,0), new THREE.Vector3(0,0,0), 0x00ff00);
+    new GameObject("Line", [new THREE.Vector3(0,0,0), new THREE.Vector3(100,0,0)], new THREE.Vector3(0,0,0), new THREE.Vector3(0,0,0), 0xff0000);
+    new GameObject("Line", [new THREE.Vector3(0,0,0), new THREE.Vector3(0,0,100)], new THREE.Vector3(0,0,0), new THREE.Vector3(0,0,0), 0x0000ff);
+
+    new GameObject("Box", [50,50,50],new THREE.Vector3(0, 0, 0), new THREE.Vector3(0,0,0), 0xffa500);
 }
 
 function islandFloor() {
@@ -25,7 +28,6 @@ function islandFloor() {
                 "Plane",
                 [floorWH,floorWH], new THREE.Vector3(floorWH * j - currSolW, 0, floorWH * i - currSolD),
                 new THREE.Vector3(1.5708, 0, 0), //3.1415/2
-                "assets/images/grass.jpg"
             ));
         }
     }

@@ -7,7 +7,6 @@ $(function () {
 
 	var renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerWidth, window.innerHeight );
-	console.log(window.innerWidth, window.innerHeight)
 
 	var container = document.getElementById("container");
 	container.appendChild( renderer.domElement );   //Ajouter le renderer au Container

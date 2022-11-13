@@ -1,5 +1,5 @@
 class GameObject {
-    constructor(geometry, args, position = new THREE.Vector3(0,0,0), rotation = new THREE.Vector3(0,0,0), texture_path = '') { //String, args[], THREE.Vector3
+    constructor(geometry, args, position = new THREE.Vector3(0,0,0), rotation = new THREE.Vector3(0,0,0), color = 0x444444) { //String, args[], THREE.Vector3
         switch (geometry) {
             case "Box":
                 this.geometry = new THREE.BoxGeometry(args[0], args[1], args[2]);
@@ -12,10 +12,10 @@ class GameObject {
                 break;
             case "Line":
                 let vertices = [];
-                vertices.push(new THREE.Vector3(0,0,0));
-                vertices.push(new THREE.Vector3(0,100,0));
+                vertices.push(args[0]);
+                vertices.push(args[1]);
                 this.geometry = new THREE.BufferGeometry().setFromPoints(vertices);
-                this.material = new THREE.LineBasicMaterial( {color: 0x00ff00, linewidth: 3 } );
+                this.material = new THREE.LineBasicMaterial( {color: color, linewidth: 5 } );
                 this.line = new THREE.Line(this.geometry, this.material);
                 this.line.type = "line";
                 scene.add(this.line);
@@ -29,7 +29,8 @@ class GameObject {
             });
         }
         else*/
-            this.material = new THREE.MeshBasicMaterial( {color: 0x444444, side: THREE.DoubleSide} );
+
+        this.material = new THREE.MeshBasicMaterial( {color: color, side: THREE.DoubleSide} );
 
         if (geometry != 'Line') {
             this.mesh = new THREE.Mesh( this.geometry, this.material );
