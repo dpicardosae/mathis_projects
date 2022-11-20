@@ -1,0 +1,3 @@
+- La force de gravité s'arrete actuellement lorsque y = playerheight, on doit faire une detec de collision à la place pour varier platf height
+- Trouver + Appliquer texture lave (Appliquer les textures marche pas)
+- Régler problème référenciel Y pour ensuite ajouter une caméra par rapport à la position du pointeur souris
