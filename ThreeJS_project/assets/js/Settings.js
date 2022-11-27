@@ -7,8 +7,11 @@ class Settings {
         this.playerHeight = 50;
         this.jumpHeight = 1000;
         this.gravity = 1500;
+        //this.maxFallDelta = -4000;
 
         this.playerRotSpeed = 1;
         this.playerMoveSpeed = 600;
+
+        this.approxMaxJump = 833;
     }
 }

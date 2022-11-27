@@ -34,10 +34,10 @@ class GameObject {
 
         if (geometry != 'Line') {
             this.mesh = new THREE.Mesh( this.geometry, this.material );
-            this.mesh.position.copy(position);
             this.mesh.rotation.x = rotation.x; // rotation.copy() -> warning ?
             this.mesh.rotation.y = rotation.y;
             this.mesh.rotation.z = rotation.z;
+            this.mesh.position.copy(position);
             scene.add(this.mesh);
         }
     }

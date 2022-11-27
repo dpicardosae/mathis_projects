@@ -4,6 +4,8 @@ var v0 = vec(0, 0, 0);
 var plateformes = [];
 var settings = new Settings();
 var clock = new THREE.Clock();
+var onPlatformID = -1;
+var delta = 1;
 
 $(function () {
 	scene = new THREE.Scene();
