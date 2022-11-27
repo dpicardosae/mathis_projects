@@ -10,11 +10,11 @@ function updatePlayerInput() {
 
     onPlatformID = onPlatform();
 
-    if (onPlatformID == -1) {
+    if (onPlatformID == -1) {   //En vol
         yPosDelta -= settings.gravity * delta;   
     }
-    else {
-        cam.position.y = settings.playerHeight;
+    else {      //Sur une plateforme
+        cam.position.y = settings.playerHeight + plateformes[onPlatformID].mesh.position.y + (plateformes[onPlatformID].geometry.parameters.depth * 0.5);
         yPosDelta = 0;
     }
 
