@@ -21,13 +21,13 @@ function spawnPlatforms() {
     plateformes.push(new GameObject(
         "Box",
         [settings.defPlatformDims.x, settings.defPlatformDims.z, settings.defPlatformDims.y],
-        vec(settings.approxMaxJump * 1 + settings.defPlatformDims.x, (settings.defPlatformDims.y/2) * -1, 0),
+        vec(800 + settings.defPlatformDims.x, (settings.defPlatformDims.y/2) * -1, 0),
         vec(Math.PI / 2., 0, 0) // 90°
     ));
     plateformes.push(new GameObject(
         "Box",
         [settings.defPlatformDims.x, settings.defPlatformDims.z, settings.defPlatformDims.y],
-        vec(0, (settings.defPlatformDims.y/2) * -1, settings.approxMaxJump * 0.5 + settings.defPlatformDims.z),
+        vec(0, (settings.defPlatformDims.y/2) * -1, 400 + settings.defPlatformDims.z),
         vec(Math.PI / 2., 0, 0) // 90°
     ));
 }

@@ -1,3 +1,2 @@
-- Faire marge detection collision plateforme Y
 - Trouver + Appliquer texture lave (Appliquer les textures marche pas)
 - Régler problème référenciel Y pour ensuite ajouter une caméra par rapport à la position du pointeur souris
