@@ -6,9 +6,9 @@ class Settings {
 
         this.playerHeight = 50;
         this.jumpHeight = 1000;
-        this.gravity = 1000;
+        this.gravity = 1200;
 
-        this.playerRotSpeed = 1;
+        this.playerRotSpeed = 2;
         this.playerMoveSpeed = 600;
     }
 }

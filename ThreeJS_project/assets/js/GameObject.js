@@ -1,5 +1,5 @@
 class GameObject {
-    constructor(geometry, args, position = v0, rotation = v0, color = 0x444444) { //String, args[], THREE.Vector3
+    constructor(geometry, args, position = v0, rotation = v0, style = 0x444444) { //String, args[], THREE.Vector3
         switch (geometry) {
             case "Box":
                 this.geometry = new THREE.BoxGeometry(args[0], args[1], args[2]);
@@ -15,22 +15,34 @@ class GameObject {
                 vertices.push(args[0]);
                 vertices.push(args[1]);
                 this.geometry = new THREE.BufferGeometry().setFromPoints(vertices);
-                this.material = new THREE.LineBasicMaterial( {color: color, linewidth: 5 } );
+                this.material = new THREE.LineBasicMaterial( {style: style, linewidth: 5 } );
                 this.line = new THREE.Line(this.geometry, this.material);
                 this.line.type = "line";
                 scene.add(this.line);
         }
 
-        /*if (texture_path != '') {
-            let textureLoader = new THREE.TextureLoader();
-            let texture = textureLoader.load(texture_path);
-            this.material = new THREE.MeshStandardMaterial({
-                map: texture
-            });
+        if (typeof style == "string") {     //Not working
+            var loader = new THREE.TextureLoader();
+            loader.load(
+                style,
+                function (texture) {
+                    var material = new THREE.MeshBasicMaterial({ map: texture });
+                    texture.wrapS = THREE.RepeatWrapping;
+                    texture.wrapT = THREE.RepeatWrapping;
+                    texture.repeat.set( 104, 104 );
+        
+                    //Create a 8x8 plane with texture
+                    var geometry = new THREE.PlaneGeometry(108, 108);
+                    //var material = new THREE.MeshBasicMaterial({ map: texture });
+                    var plane = new THREE.Mesh(geometry, material);
+                    scene.add(plane);
+                }
+            );	
+        } 
+        else if (typeof style == "number") {      //Hex codes
+            this.material = new THREE.MeshBasicMaterial( {color: style, side: THREE.DoubleSide} );
         }
-        else*/
 
-        this.material = new THREE.MeshBasicMaterial( {color: color, side: THREE.DoubleSide} );
 
         if (geometry != 'Line') {
             this.mesh = new THREE.Mesh( this.geometry, this.material );

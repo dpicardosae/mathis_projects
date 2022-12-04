@@ -4,29 +4,23 @@ var yPosDelta = 0;  //How much pixel shift in one frame on Y axis
 
 $(function () {
     document.addEventListener("keydown", function(event) {
-    if (event.key == "z" || event.key == "ArrowUp") {
-        zPosInput = settings.playerMoveSpeed * -1;    //cam.position.x -= 1;
-    }
-    else if (event.key == "q" || event.key == "ArrowLeft") {
-        yRotInput = settings.playerRotSpeed;      //cam.rotation.y += 0.05;
-    }
-    else if (event.key == "d" || event.key == "ArrowRight") {
-        yRotInput = settings.playerRotSpeed * -1;     //cam.rotation.y -= 0.05;
-    }
-    else if (event.key == "s" || event.key == "ArrowDown") {
-        zPosInput = settings.playerMoveSpeed;     //cam.position.x += 1;
-    }
-    else if (event.key == " ")  {//SpaceBar
-        jump();
-    }
+        if (event.key == "z" || event.key == "ArrowUp") userInputManager.forwardPressed = true;
+        else if (event.key == "s" || event.key == "ArrowDown") userInputManager.backwardPressed = true;
+        else if (event.key == " ") userInputManager.jumpPressed = true;    //SpaceBar
+        if (event.key == "q" || event.key == "ArrowLeft") userInputManager.leftPressed = true;
+        if (event.key == "d" || event.key == "ArrowRight") userInputManager.rightPressed = true;
     });
 
     document.addEventListener("keyup", function(event){
+     
         if (event.key == "z" || event.key == "s" || event.key == "ArrowUp" || event.key == "ArrowDown") {
-            zPosInput = 0;
+            userInputManager.forwardPressed = false;
+            userInputManager.backwardPressed = false;
         }
-        else if (event.key == "q" || event.key == "d" || event.key == "ArrowLeft" || event.key == "ArrowRight") {
-            yRotInput = 0;    
+        if (event.key == "q" || event.key == "d" || event.key == "ArrowLeft" || event.key == "ArrowRight") {
+            userInputManager.leftPressed = false;
+            userInputManager.rightPressed = false; 
         }
+        if (event.key == " ") userInputManager.jumpPressed = false;
     });
 });

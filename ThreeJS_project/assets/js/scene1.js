@@ -21,17 +21,25 @@ function spawnPlatforms() {
     plateformes.push(new GameObject(
         "Box",
         [settings.defPlatformDims.x, settings.defPlatformDims.z, settings.defPlatformDims.y],
-        vec(800 + settings.defPlatformDims.x, (settings.defPlatformDims.y/2) * -1, 0),
+        vec(800 + settings.defPlatformDims.z, (settings.defPlatformDims.y/2) * -1, 300),
         vec(Math.PI / 2., 0, 0) // 90°
     ));
+
     plateformes.push(new GameObject(
         "Box",
         [settings.defPlatformDims.x, settings.defPlatformDims.z, settings.defPlatformDims.y],
-        vec(0, (settings.defPlatformDims.y/2) * -1, 400 + settings.defPlatformDims.z),
+        vec(2500, (settings.defPlatformDims.y/2) * -1, -300),
+        vec(Math.PI / 2., 0, 0) // 90°
+    ));
+
+    plateformes.push(new GameObject(
+        "Box",
+        [settings.defPlatformDims.x, settings.defPlatformDims.z, settings.defPlatformDims.y],
+        vec(3500, (settings.defPlatformDims.y/2) * -1, 500),
         vec(Math.PI / 2., 0, 0) // 90°
     ));
 }
 
 function lava() {
-    new GameObject("Plane", settings.lavaDims, vec(0, settings.defPlatformDims.y * -1, 0), vec(Math.PI / 2., 0, 0), 0xffa500);
+    new GameObject("Plane", settings.lavaDims, vec(0, settings.defPlatformDims.y * -1, 0), vec(Math.PI / 2., 0, 0), 0xFFA500);  "/assets/images/lave.png"
 }

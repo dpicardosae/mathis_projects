@@ -1,2 +1,10 @@
 - Trouver + Appliquer texture lave (Appliquer les textures marche pas)
-- Régler problème référenciel Y pour ensuite ajouter une caméra par rapport à la position du pointeur souris
+- Touche r respawn
+- Touche debug (axes)
+
+- Controles souris:
+J'ai empéché que l'on puisse "tourner" dans les airs, parce que ça donne un effet jetpack
+Plus tard, on devra pouvoir tourner "réellement" avec Q et D comme maintenant mais il
+faudrait que la souris permette de tourner un peu la caméra sans affecter la trajectoire du joueur.
+La caméra doit avoir une position centrée mais peut s'en éloigner avec la souris, plus on s'eloigne
+de la position centrée moins on tourne.
