@@ -29,4 +29,22 @@ $(function () {
 		renderer.render( scene, cam );
 	}
 	animate();
+
+	var loader = new THREE.TextureLoader();
+	loader.load(
+		"https://cdn.glitch.com/62a3a7d1-3c19-4fb7-b1ef-a1c65ba38596%2Fboard.svg?v=1577426114562",
+		function (texture) {
+			var material = new THREE.MeshBasicMaterial({ map: texture });
+			texture.wrapS = THREE.RepeatWrapping;
+			texture.wrapT = THREE.RepeatWrapping;
+			texture.repeat.set( 104, 104 );
+
+			//Create a 8x8 plane with texture
+			var geometry = new THREE.PlaneGeometry(108, 108);
+			//var material = new THREE.MeshBasicMaterial({ map: texture });
+			var plane = new THREE.Mesh(geometry, material);
+			scene.add(plane);
+		}
+	);	
+
 });
