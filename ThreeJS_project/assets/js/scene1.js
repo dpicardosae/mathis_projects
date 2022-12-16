@@ -41,5 +41,5 @@ function spawnPlatforms() {
 }
 
 function lava() {
-    new GameObject("Plane", settings.lavaDims, vec(0, settings.defPlatformDims.y * -1, 0), vec(Math.PI / 2., 0, 0), 0xFFA500);  "/assets/images/lave.png"
+    new GameObject("Plane", settings.lavaDims, vec(0, settings.defPlatformDims.y * -1, 0), vec(Math.PI / 2., 0, 0), "/assets/images/lave.png");  
 }

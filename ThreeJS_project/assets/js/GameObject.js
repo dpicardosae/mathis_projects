@@ -21,19 +21,18 @@ class GameObject {
                 scene.add(this.line);
         }
 
-        if (typeof style == "string") {     //Not working
-            var loader = new THREE.TextureLoader();
+        if (typeof style == "string") {     //"this" is not reachable inside function ??,
+            var loader = new THREE.TextureLoader(); //Works only for planes btw
             loader.load(
                 style,
                 function (texture) {
-                    var material = new THREE.MeshBasicMaterial({ map: texture });
                     texture.wrapS = THREE.RepeatWrapping;
                     texture.wrapT = THREE.RepeatWrapping;
-                    texture.repeat.set( 104, 104 );
+                    texture.repeat.set( 2, 2 );
         
                     //Create a 8x8 plane with texture
-                    var geometry = new THREE.PlaneGeometry(108, 108);
-                    //var material = new THREE.MeshBasicMaterial({ map: texture });
+                    var geometry = new THREE.PlaneGeometry(args[0], args[1]);
+                    var material = new THREE.MeshBasicMaterial({ map: texture });
                     var plane = new THREE.Mesh(geometry, material);
                     scene.add(plane);
                 }
