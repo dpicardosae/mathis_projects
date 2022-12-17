@@ -6,10 +6,11 @@ var settings = new Settings();
 var clock = new THREE.Clock();
 var onPlatformID = -1;
 var delta = 1;
+var skyBox;
 
 $(function () {
 	scene = new THREE.Scene();
-	cam = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 1, 5000);
+	cam = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 1, 10000);
 
 	var renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerWidth, window.innerHeight );

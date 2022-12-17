@@ -1,4 +1,3 @@
-- Trouver + Appliquer texture lave (Appliquer les textures marche pas)
 - Touche r respawn
 - Touche debug (axes)
 

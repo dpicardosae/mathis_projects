@@ -1,5 +1,6 @@
 function handleMotion() {
     updatePlayerInput();
+    updateSkyboxPosition();
 }
 
 function updatePlayerInput() {
@@ -43,4 +44,9 @@ function updatePlayerInput() {
 function jump() {
         yPosDelta = settings.jumpHeight;
         yRotInput = 0;
+}
+
+function updateSkyboxPosition() {
+    if (skyBox == undefined || skyBox.mesh == undefined) return;    //Skybox non existante les premières frames
+    skyBox.mesh.position.copy(cam.position);    //La boule de skybox reste toujours autour du joueur
 }

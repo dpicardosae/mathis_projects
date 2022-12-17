@@ -8,6 +8,8 @@ function sceneObjects() {
     new GameObject("Box", [1, settings.debugAxisLen, 1], vec(0,settings.debugAxisLen/2,0), v0, 0x00ff00);       //Axes
     new GameObject("Box", [settings.debugAxisLen, 1, 1], vec(settings.debugAxisLen/2, 0, 0), v0, 0xff0000);
     new GameObject("Box", [1,1,settings.debugAxisLen], vec(0, 0, settings.debugAxisLen/2), v0, 0x0000ff);
+
+    skyBox = new GameObject("Sphere", [8000, 5, 5], vec(0, 0, 0), vec(Math.PI / 2., 0, 0), "assets/images/2k_stars_milky_way.png", [3,3]);    //SkyBox
 }
 
 function spawnPlatforms() {
@@ -41,5 +43,5 @@ function spawnPlatforms() {
 }
 
 function lava() {
-    new GameObject("Plane", settings.lavaDims, vec(0, settings.defPlatformDims.y * -1, 0), vec(Math.PI / 2., 0, 0), "/assets/images/lave.png");  
+    new GameObject("Plane", settings.lavaDims, vec(0, settings.defPlatformDims.y * -1, 0), vec(Math.PI / 2., 0, 0), "assets/images/lave.png", [4, 2]);
 }
