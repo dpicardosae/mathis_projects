@@ -7,21 +7,23 @@ function updatePlayerInput() {
     delta = clock.getDelta();
     onPlatformID = onPlatformXYZ();
 
+    let nextFrameY = cam.position.y - settings.playerHeight + (yPosDelta * delta);  //The y position of the camera's "feets" on the NEXT frame for analysis
+    let syncedGravity = settings.gravity * delta;   //gravity but regulated across computer clock speeds
+
      //On est en vol hors d'une zone de plateforme (ou en dessous)
-    if (onPlatformID == -1) yPosDelta -= settings.gravity * delta;
+    if (onPlatformID == -1) yPosDelta -= syncedGravity;
     else {                   //On est au dessus ou sur une plateforme
-        let nextFrameY = cam.position.y - settings.playerHeight + (yPosDelta * delta);  //The y position of the camera's "feets" on the NEXT frame for analysis
-        //The Y position of the highest pixels on the platform's collider
+        //The Y position of the highest pixels on the platform's collider, only calculated if we are over a platform
         let currPlatformTopY = plateformes[onPlatformID].mesh.position.y + (plateformes[onPlatformID].geometry.parameters.depth * 0.5);
 
         if (nextFrameY <= currPlatformTopY && yPosDelta < 0) {    //Si prochaine frame passe sous la plateforme et on tombe actuellement
             
             //On arrete la chute et on se pose sur la plateforme
-            cam.position.y = settings.playerHeight + plateformes[onPlatformID].mesh.position.y + (plateformes[onPlatformID].geometry.parameters.depth * 0.5);
+            nextFrameY = currPlatformTopY;  //Si on changeait directement la position de la cam, la position de la prochaine frame déja décidée annulerait
             yPosDelta = 0;
         }    
         else if (nextFrameY > currPlatformTopY){    //Si prochaine frame est toujours au dessus d'une plateforme
-            yPosDelta -= settings.gravity * delta;  //If you need to modify then modify other one too
+            yPosDelta -= syncedGravity;  //If you need to modify then modify other one too
         }
 
             //Entrées faisables que si on est STRICTEMENT sur une plateforme
@@ -40,7 +42,7 @@ function updatePlayerInput() {
 
     cam.translateZ(zPosInput * delta);
     cam.rotation.y += yRotInput * delta;
-    cam.position.y += yPosDelta * delta;    //Dont modify else you have to modify those up there
+    cam.position.y = nextFrameY + settings.playerHeight;
 }
 
 function jump() {
