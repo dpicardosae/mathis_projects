@@ -7,23 +7,25 @@ function updatePlayerInput() {
     delta = clock.getDelta();
     onPlatformID = onPlatformXYZ();
 
-    if (onPlatformID == -1) {   //On est en vol hors d'une zone de plateforme (ou en dessous)
-        yPosDelta -= settings.gravity * delta;
-    }
-    else {                      //On est au dessus ou sur une plateforme
-        if (cam.position.y - settings.playerHeight + (yPosDelta * delta) <= plateformes[onPlatformID].mesh.position.y + (plateformes[onPlatformID].geometry.parameters.depth * 0.5)
-        && yPosDelta < 0) {    //Si prochaine frame passe sous la plateforme et on tombe actuellement
+     //On est en vol hors d'une zone de plateforme (ou en dessous)
+    if (onPlatformID == -1) yPosDelta -= settings.gravity * delta;
+    else {                   //On est au dessus ou sur une plateforme
+        let nextFrameY = cam.position.y - settings.playerHeight + (yPosDelta * delta);  //The y position of the camera's "feets" on the NEXT frame for analysis
+        //The Y position of the highest pixels on the platform's collider
+        let currPlatformTopY = plateformes[onPlatformID].mesh.position.y + (plateformes[onPlatformID].geometry.parameters.depth * 0.5);
+
+        if (nextFrameY <= currPlatformTopY && yPosDelta < 0) {    //Si prochaine frame passe sous la plateforme et on tombe actuellement
             
             //On arrete la chute et on se pose sur la plateforme
             cam.position.y = settings.playerHeight + plateformes[onPlatformID].mesh.position.y + (plateformes[onPlatformID].geometry.parameters.depth * 0.5);
             yPosDelta = 0;
-        }    //La prochaine frame est toujours au dessus d'une plateforme
-        else if (cam.position.y - settings.playerHeight + (yPosDelta * delta) > plateformes[onPlatformID].mesh.position.y + (plateformes[onPlatformID].geometry.parameters.depth * 0.5)){ 
+        }    
+        else if (nextFrameY > currPlatformTopY){    //Si prochaine frame est toujours au dessus d'une plateforme
             yPosDelta -= settings.gravity * delta;  //If you need to modify then modify other one too
         }
 
             //Entrées faisables que si on est STRICTEMENT sur une plateforme
-        if (cam.position.y - settings.playerHeight + (yPosDelta * delta) == plateformes[onPlatformID].mesh.position.y + (plateformes[onPlatformID].geometry.parameters.depth * 0.5)) {
+        if (nextFrameY == currPlatformTopY) {
             if (userInputManager.forwardPressed) zPosInput = settings.playerMoveSpeed * -1;
             else if (userInputManager.backwardPressed) zPosInput = settings.playerMoveSpeed;
             else zPosInput = 0;

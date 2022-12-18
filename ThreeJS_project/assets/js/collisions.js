@@ -8,7 +8,7 @@ function onPlatformXYZ() {     //Returns -1 for NoPlatform, and the platform ID 
             cam.position.z < platform.mesh.position.z + (platform.geometry.parameters.height * 0.5)) {
                 if (cam.position.y - settings.playerHeight >= platform.mesh.position.y + (platform.geometry.parameters.depth * 0.5)) {
                     platformID = i;
-                    return false;
+                    return false;       //Break from the Jquery loop, NOT from the function
                 }
             }
         }
