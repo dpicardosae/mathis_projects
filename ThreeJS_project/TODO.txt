@@ -1,5 +1,5 @@
 - Touche r respawn
-- Touche debug (axes)
+- Changer controles pour usage souris
 
 - Controles souris:
 J'ai empéché que l'on puisse "tourner" dans les airs, parce que ça donne un effet jetpack

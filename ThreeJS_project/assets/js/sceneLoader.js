@@ -1,5 +1,4 @@
 $(function () {
-    $("#loading").hide();
     loadScene("Scene1");
 });
 

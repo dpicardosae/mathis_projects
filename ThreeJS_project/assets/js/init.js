@@ -1,18 +1,24 @@
+//GLOBAL VARIABLES
+var renderer;
 var scene;
 var cam;
-var v0 = vec(0, 0, 0);
 var plateformes = [];
-var settings = new Settings();
-var clock = new THREE.Clock();
-var onPlatformID = -1;
-var delta = 1;
 var skyBox;
 
+var v0 = vec(0, 0, 0);
+var settings = new Settings();
+var clock = new THREE.Clock();
+
+var onPlatformID = -1;
+var delta = 1;
+var debugModeEnabled = false;
+
+//Main function
 $(function () {
 	scene = new THREE.Scene();
 	cam = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 1, 10000);
 
-	var renderer = new THREE.WebGLRenderer();
+	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerWidth, window.innerHeight );
 
 	var container = document.getElementById("container");

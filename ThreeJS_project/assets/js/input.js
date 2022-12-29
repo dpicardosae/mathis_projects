@@ -1,3 +1,4 @@
+//Global variables
 var zPosInput = 0;
 var yRotInput = 0;
 var yPosDelta = 0;  //How much pixel shift in one frame on Y axis
@@ -10,6 +11,8 @@ $(function () {
         if (event.key == " ") userInputManager.jumpPressed = true;    //SpaceBar
         if (event.key == "q" || event.key == "ArrowLeft") userInputManager.leftPressed = true;
         if (event.key == "d" || event.key == "ArrowRight") userInputManager.rightPressed = true;
+
+        if (event.key == "+") debugMode();
     });
 
     document.addEventListener("keyup", function(event){

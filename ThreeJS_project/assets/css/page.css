@@ -6,15 +6,17 @@ body, html {
 #loading {
     background-color: rgba(255, 255, 255, 0.1);
     position: fixed;
-    top: 200px;
-    left: 40%;
-    width: 20%;
+    top: 20%;
+
+    width: 200px;
+    left: 50%;
+    margin-left: -100px;    /*Minus half of the width to center a fixed element*/
+    
     z-index: 2;
     color: rgba(255, 255, 255, 0.5);
-    font-family: Calibri;
-    font-size: 300%;
-    text-align: center;
-    padding: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xxx-large;
+    padding: 10px;
     border-radius: 5px;
 }
 

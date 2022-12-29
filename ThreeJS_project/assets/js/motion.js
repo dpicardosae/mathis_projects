@@ -1,8 +1,10 @@
 function handleMotion() {
-    updatePlayerInput();
+    if (!debugModeEnabled) updatePlayerInput();
+    else updateDebugInput();
     updateSkyboxPosition();
 }
 
+//Uses key input values and gravity data to move the camera's position how we need it to. 
 function updatePlayerInput() {
     delta = clock.getDelta();
     onPlatformID = onPlatformXYZ();

@@ -55,4 +55,18 @@ class GameObject {
         this.mesh.position.copy(position);
         scene.add(this.mesh);
     }
+
+    //Removes the object from scene and free the geometry and material
+    destroy() {
+        scene.remove(this.mesh);
+        if (this.geometry) this.geometry.dispose();
+
+        if (this.material) {
+            if (this.material instanceof Array) {   //if material is an array
+                this.material.forEach(material => material.dispose())
+            } else {
+                this.material.dispose();
+            }
+        }
+    }
 }
