@@ -14,4 +14,26 @@ function spawnPlatforms() {
         vec(0, (settings.defPlatformDims.y/2) * -1, 0),
         vec(Math.PI / 2., 0, 0) // 90°
     ));
+
+    plateformes.push(new GameObject(        //Base platform
+        "Box",
+        [settings.defPlatformDims.x/2, settings.defPlatformDims.z/2, settings.defPlatformDims.y],
+        vec(1000, (settings.defPlatformDims.y/2) * -1, 1000),
+        vec(Math.PI / 2., 0, 0) // 90°
+    ));
+
+    plateformes.push(new GameObject(        //Base platform
+        "Box",
+        [settings.defPlatformDims.x/2, settings.defPlatformDims.z/2, settings.defPlatformDims.y],
+        vec(-1000, (settings.defPlatformDims.y/2) * -1, -1000),
+        vec(Math.PI / 2., 0, 0) // 90°
+    ));
+
+    plateformes.push(new GameObject(        //Base platform
+        "Box",
+        [settings.defPlatformDims.x/2, settings.defPlatformDims.z/2, settings.defPlatformDims.y],
+        vec(-1000, (settings.defPlatformDims.y/2) * -1, -1000),
+        vec(Math.PI / 2., 0, 0) // 90°
+    ));
+
 }

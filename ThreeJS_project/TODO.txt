@@ -7,3 +7,7 @@ Plus tard, on devra pouvoir tourner "réellement" avec Q et D comme maintenant m
 faudrait que la souris permette de tourner un peu la caméra sans affecter la trajectoire du joueur.
 La caméra doit avoir une position centrée mais peut s'en éloigner avec la souris, plus on s'eloigne
 de la position centrée moins on tourne.
+
+- Concept
+Pistolet activant des plateformes, nombre de munitions limitées
+1 Plateforme activée à la fois. Compteur désactivant toutes les plateformes

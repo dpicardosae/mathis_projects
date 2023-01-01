@@ -1,12 +1,11 @@
 function handleMotion() {
-    if (!debugModeEnabled) updatePlayerInput();
-    else updateDebugInput();
+    //if (!debugModeEnabled) updatePlayerInput();
+    //else updateDebugInput();
     updateSkyboxPosition();
 }
 
 //Uses key input values and gravity data to move the camera's position how we need it to. 
 function updatePlayerInput() {
-    delta = clock.getDelta();
     onPlatformID = onPlatformXYZ();
 
     let nextFrameY = cam.position.y - settings.playerHeight + (yPosDelta * delta);  //The y position of the camera's "feets" on the NEXT frame for analysis
